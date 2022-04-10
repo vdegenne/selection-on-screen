@@ -31,12 +31,12 @@ movableFrame.addEventListener('mousedown', function (e) {
 movableFrame.addEventListener('mouseup', function () {
   pressed = false
 })
-movableFrame.addEventListener('mousemove', function (e) {
+window.addEventListener('mousemove', function (e) {
   if (pressed) {
     movableFrame.style.top = `${e.y - innerY}px`
     movableFrame.style.left = `${e.x - innerX}px`
   }
 })
-movableFrame.addEventListener('mouseleave', function () {
-  pressed = false
-})
+// movableFrame.addEventListener('mouseleave', function () {
+//   pressed = false
+// })
