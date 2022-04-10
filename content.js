@@ -25,15 +25,17 @@ let innerX, innerY
 let _userSelectDebouncer;
 
 movableFrame.addEventListener('mousedown', function (e) {
+  if (e.button==2) { return }
   pressed = true
   const rect = this.getBoundingClientRect()
   innerX = e.clientX - rect.left; // x position within the element.
   innerY = e.clientY - rect.top;  // y position within the element.
   _userSelectDebouncer = setTimeout(() => {
     movableFrame.style.userSelect = 'none'
-  }, 200);
+  }, 50);
 })
-movableFrame.addEventListener('mouseup', function () {
+movableFrame.addEventListener('mouseup', function (e) {
+  if (e.button==2) { return }
   pressed = false
   if (_userSelectDebouncer) {
     clearTimeout(_userSelectDebouncer)
