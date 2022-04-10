@@ -17,7 +17,7 @@ movableFrame.style.fontSize = '48px'
 movableFrame.style.backgroundColor = '#000000aa'
 movableFrame.style.color = 'white'
 movableFrame.style.padding = '6px'
-movableFrame.style.userSelect = 'none'
+// movableFrame.style.userSelect = 'none'
 
 let pressed = false
 let innerX, innerY
@@ -46,3 +46,26 @@ const params = new URLSearchParams(window.location.search)
 if (window.location.host.includes('www.google.') && params.has('tbm') && params.get('tbm') == 'isch') { // google images
   movableFrame.innerText = params.get('q')
 }
+
+
+
+
+/******** AUDIO */
+const audioMap = {}
+movableFrame.addEventListener('contextmenu', e=>e.preventDefault())
+movableFrame.addEventListener('pointerdown', function (e) {
+  if (e.button == 2) {
+    const content = movableFrame.innerText.trim()
+    if (content) {
+      let audio
+      if (audioMap[content]) {
+        audio = audioMap[content]
+      }
+      else {
+        audio = new Audio(`https://assiets.vdegenne.com/data/japanese/audio/${encodeURIComponent(content)}`)
+        audioMap[content] = audio
+      }
+      audio.play()
+    }
+  }
+})
