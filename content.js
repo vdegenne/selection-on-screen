@@ -40,3 +40,9 @@ window.addEventListener('mousemove', function (e) {
 // movableFrame.addEventListener('mouseleave', function () {
 //   pressed = false
 // })
+
+
+const params = new URLSearchParams(window.location.search)
+if (window.location.host.includes('www.google.') && params.has('tbm') && params.get('tbm') == 'isch') { // google images
+  movableFrame.innerText = params.get('q')
+}
