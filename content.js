@@ -17,7 +17,7 @@ movableFrame.style.fontSize = '48px'
 movableFrame.style.backgroundColor = '#000000aa'
 movableFrame.style.color = 'white'
 movableFrame.style.padding = '6px'
-// movableFrame.style.userSelect = 'none'
+movableFrame.style.userSelect = 'none'
 
 let pressed = false
 let innerX, innerY
