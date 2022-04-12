@@ -22,7 +22,7 @@ movableFrame.style.padding = '6px'
 let pressed = false
 let innerX, innerY
 
-let _userSelectDebouncer;
+// let _userSelectDebouncer;
 
 movableFrame.addEventListener('mousedown', function (e) {
   if (e.button==2) { return }
@@ -30,18 +30,18 @@ movableFrame.addEventListener('mousedown', function (e) {
   const rect = this.getBoundingClientRect()
   innerX = e.clientX - rect.left; // x position within the element.
   innerY = e.clientY - rect.top;  // y position within the element.
-  _userSelectDebouncer = setTimeout(() => {
-    movableFrame.style.userSelect = 'none'
-  }, 50);
+  // _userSelectDebouncer = setTimeout(() => {
+  //   movableFrame.style.userSelect = 'none'
+  // }, 50);
 })
 movableFrame.addEventListener('mouseup', function (e) {
   if (e.button==2) { return }
   pressed = false
-  if (_userSelectDebouncer) {
-    clearTimeout(_userSelectDebouncer)
-    _userSelectDebouncer = undefined
-  }
-  movableFrame.style.userSelect = 'initial'
+  // if (_userSelectDebouncer) {
+  //   clearTimeout(_userSelectDebouncer)
+  //   _userSelectDebouncer = undefined
+  // }
+  // movableFrame.style.userSelect = 'initial'
 })
 window.addEventListener('mousemove', function (e) {
   if (pressed) {
